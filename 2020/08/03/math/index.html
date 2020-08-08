@@ -28,7 +28,7 @@
 <meta property="og:description" content="Essence of Linear Algebra Here is a nice video providing intuitions for Eigenvector and Eigenvalue     Essence of Probability Theory How to connect conditional probability with the regression model?Re">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-03T16:54:40.000Z">
-<meta property="article:modified_time" content="2020-08-08T14:49:13.735Z">
+<meta property="article:modified_time" content="2020-08-08T19:36:00.252Z">
 <meta property="article:author" content="Discrete Choice">
 <meta property="article:tag" content="Probability Theory">
 <meta property="article:tag" content="Linear Algebra">
@@ -183,7 +183,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 16:49:13" itemprop="dateModified" datetime="2020-08-08T16:49:13+02:00">2020-08-08</time>
+                <time title="Modified: 2020-08-08 21:36:00" itemprop="dateModified" datetime="2020-08-08T21:36:00+02:00">2020-08-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,6 +227,32 @@
 </ul>
 <h3 id="Law-of-Iterated-Expectations"><a href="#Law-of-Iterated-Expectations" class="headerlink" title="Law of Iterated Expectations"></a>Law of Iterated Expectations</h3><p>$$<br>E[Y]=E[E[Y|X]]<br>$$<br>Let us look again at the law of total probability for expectation. Assume $E[Y|X]=g(X)$, we have:<br>$$<br>\begin{align*}<br>E[Y]&amp;=\sum_{x_i\in{R_X}}E[Y|X=x_i]P_X(x_i) \\<br>    &amp;=\sum_{x_i\in{R_X}}g(x_i)P_X(x_i) \\<br>    &amp;=E[g(X)]=E[E[Y|X]]<br>\end{align*}<br>$$<br>This is also known as <strong>Law of Total Expectation</strong>.</p>
 <h3 id="Law-of-Total-Varianace"><a href="#Law-of-Total-Varianace" class="headerlink" title="Law of Total  Varianace:"></a>Law of Total  Varianace:</h3><p>$$<br>Var(Y)=Var(E[Y|X])+E[Var(Y|X)]<br>$$<br>Let $Z=E[Y|X]$, then, $Var(Z)=E[Z^2]-(E[Z])^2=E[Z^2]-(E[Y])^2$. First, we are going to show the proof and introduce the intuition afterwards.<br>$$<br>\begin{align*}<br>&amp; Var(Y|X)=E[Y^2|X]-E^2[Y|X] \\<br>&amp; \Rightarrow E[Var(Y|X)]=E[Y^2]-E[Z^2] \\<br>&amp; \Rightarrow E[Var(Y|X)]+E[Z^2]=Var(Y)+(E[Y])^2 \\<br>&amp; \Rightarrow Var(Y) =E[Var(Y|X)]+Var(E[Y|X])<br>\end{align*}<br>$$<br>To understand the law of total variance intuitively, it is often useful to look at a population divided into several subgroups. In particular, suppose that we have this random experiment: We pick a person in the world at random and look at his/her height. Let us use variable $Y$ to represent the height. Define another random variable $X$ whose value depends on the country of the chosen person, where $X=1,2,3…n$. $n$ is the the number of countries in the world. Then, let us look at the two terms in the law of total variance.<br>$$<br>Var(Y) =E[Var(Y|X)]+Var(E[Y|X])<br>$$<br>We can see that $Var(Y|X=i)$ denotes the variance of $X$ in country $i$. Thus $E[Var(Y|X)]$ is the average of variances across all countries. On the other hand, $E[Y|X=i]$ is average height in country $i$. Then $Var(E[Y|X])$ is the variance between countries. So we can interpret the law of total variance in the following way. Variance of $Y$ can be decomposed into two parts: the first is the average of variances from each individual country, while the second is the variance between height averages in each country.</p>
+<h3 id="Convergence-of-Random-Variable"><a href="#Convergence-of-Random-Variable" class="headerlink" title="Convergence of Random Variable"></a>Convergence of Random Variable</h3><p>Before discussing convergence for a sequence of random variables, let us remember what convergence means for a sequence of real numbers. </p>
+<blockquote>
+<p>A sequence of real number $x_1, x_2, x_3 …$ converges to a limit x if<br>$$<br>\lim_{n\rightarrow\infty}x_n=x<br>$$</p>
+<p>That is, for any $\epsilon&gt;0$, there exists an $N\in\N $ such that </p>
+<p>$$<br>|x_n-x|&lt;\epsilon,\text{ for all } n&gt;N<br>$$</p>
+</blockquote>
+<h4 id="Sequence-of-Random-Variables"><a href="#Sequence-of-Random-Variables" class="headerlink" title="Sequence of Random Variables"></a>Sequence of Random Variables</h4><p>Here, we would like to discuss what we precisely mean by a sequence of random variables. Recall that, in any probability model, we have a sample space $S$ and a probability measure $P$. For simplicity, suppose that our sample space consists of a finite number of elements, i.e.,</p>
+<p>$$<br>S={s_1,s_2,…., s_k}<br>$$</p>
+<p>Then, a random variable $X$ is a mapping that assigns a real number to any of any of the possible outcomes $s_i$, which we may write as<br>$$<br>X(s_i)=x_i,\text{ for }i=1,2,…,k<br>$$</p>
+<p>When we have a sequence of random variables $X_1,X_2,X3,….$, it means each $X_n$ is a function from space $S$ to real numbers, that is,<br>$$<br>X_n(s_i)=x_{ni},\text{ for }i=1,2,…,k<br>$$</p>
+<p>In brief, a sequence of random variables is in fact a sequence of functions $X_n: S\rightarrow\R$.</p>
+<h3 id="Convergence-in-Distribution"><a href="#Convergence-in-Distribution" class="headerlink" title="Convergence in Distribution"></a>Convergence in Distribution</h3><p>Convergence in distribution is in some sense the weakest type of convergence. All it says is that the CDF of $X_n$ converges to the CDF of $X$ as $n$ goes to infinity. It does not require any dependence between the $X_n$ and $X$.  To say that $X_n$ converges in distribution to $X$, we write:<br>$$<br>X_n \xrightarrow{d} X<br>$$</p>
+<p>The formal definition of convergence in distribution follows:</p>
+<blockquote>
+<p>A sequence of random variables $X_1,X_2,X3,….$ converges in distribution to a random<br>variable $X$, if<br>$$<br> \lim_{n\rightarrow\infty}F_{X_n}(x)=F_{X}(x)<br> $$<br> for all at which $F_{X}(x)$ is continuous. </p>
+</blockquote>
+<p>The most famous example of convergence in distribution is the central limit theorem (CLT). The CLT states that the normalized average of i.i.d. random variables $X_1,X_2,X3,….$ converges in distribution to a standard normal random variable.</p>
+<h3 id="Convergence-in-Probability"><a href="#Convergence-in-Probability" class="headerlink" title="Convergence in Probability"></a>Convergence in Probability</h3><p>Convergence in probability is stronger than convergence in distribution, and we write<br>$$<br>X_n \xrightarrow{P} X<br>$$</p>
+<p>The formal definition of convergence in probability follows:</p>
+<blockquote>
+<p>A sequence of random variables $X_1,X_2,X3,….$ converges in  probability to a random<br>variable $X$, if<br>$$<br> \lim_{n\rightarrow\infty}P(|X_n-X|\geq\epsilon)=0,\text{ for all }\epsilon&gt;0<br>$$</p>
+</blockquote>
+<p>The most famous example of convergence in probability is the weak law of large numbers (WLLN). The WLLN states that if $X_1,X_2,X3,….$ are i.i.d. random variable with mean $E[X_i]=\mu&lt;\infty$, then the average sequence defined by<br>$$<br>\bar{X}_n=\frac{X_1+X_2+…+X_n}{n}<br>$$</p>
+<p>converges in probability to its mean $\mu$. It is called the “weak” law because it refers to convergence in probability. There is another version of the law of large numbers that is called the strong law of large numbers (SLLN).</p>
+<h3 id="Convergence-in-Mean"><a href="#Convergence-in-Mean" class="headerlink" title="Convergence in Mean"></a>Convergence in Mean</h3><p>One way of interpreting the convergence of a sequence  $X_n$ to  $X$ is to say the “distance” between $X_n$ to  $X$  is getting smaller and smaller.</p>
+<h3 id="Almost-Sure-Convergence"><a href="#Almost-Sure-Convergence" class="headerlink" title="Almost Sure Convergence"></a>Almost Sure Convergence</h3><p>Consider a sequence of random variables  $X_1,X_2,X3,….$, if the probability that the sequence $X_n(s)$ converges to $X(s)$ is equal to 1, we say that $X_n$ converges to $X$ almost surely and write<br>$$<br>X_n \xrightarrow{a.s.} X<br>$$</p>
 
     </div>
 
@@ -314,7 +340,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Essence-of-Linear-Algebra"><span class="nav-number">1.</span> <span class="nav-text">Essence of Linear Algebra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Essence-of-Probability-Theory"><span class="nav-number">2.</span> <span class="nav-text">Essence of Probability Theory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Law-of-Iterated-Expectations"><span class="nav-number">2.1.</span> <span class="nav-text">Law of Iterated Expectations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Law-of-Total-Varianace"><span class="nav-number">2.2.</span> <span class="nav-text">Law of Total  Varianace:</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Essence-of-Linear-Algebra"><span class="nav-number">1.</span> <span class="nav-text">Essence of Linear Algebra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Essence-of-Probability-Theory"><span class="nav-number">2.</span> <span class="nav-text">Essence of Probability Theory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Law-of-Iterated-Expectations"><span class="nav-number">2.1.</span> <span class="nav-text">Law of Iterated Expectations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Law-of-Total-Varianace"><span class="nav-number">2.2.</span> <span class="nav-text">Law of Total  Varianace:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convergence-of-Random-Variable"><span class="nav-number">2.3.</span> <span class="nav-text">Convergence of Random Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sequence-of-Random-Variables"><span class="nav-number">2.3.1.</span> <span class="nav-text">Sequence of Random Variables</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convergence-in-Distribution"><span class="nav-number">2.4.</span> <span class="nav-text">Convergence in Distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convergence-in-Probability"><span class="nav-number">2.5.</span> <span class="nav-text">Convergence in Probability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convergence-in-Mean"><span class="nav-number">2.6.</span> <span class="nav-text">Convergence in Mean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Almost-Sure-Convergence"><span class="nav-number">2.7.</span> <span class="nav-text">Almost Sure Convergence</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
