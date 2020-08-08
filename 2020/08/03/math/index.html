@@ -28,7 +28,7 @@
 <meta property="og:description" content="Essence of Linear Algebra Here is a nice video providing intuitions for Eigenvector and Eigenvalue     Essence of Probability Theory How to connect conditional probability with the regression model?Re">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-03T16:54:40.000Z">
-<meta property="article:modified_time" content="2020-08-08T19:46:45.029Z">
+<meta property="article:modified_time" content="2020-08-08T20:59:31.066Z">
 <meta property="article:author" content="Discrete Choice">
 <meta property="article:tag" content="Probability Theory">
 <meta property="article:tag" content="Linear Algebra">
@@ -183,7 +183,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 21:46:45" itemprop="dateModified" datetime="2020-08-08T21:46:45+02:00">2020-08-08</time>
+                <time title="Modified: 2020-08-08 22:59:31" itemprop="dateModified" datetime="2020-08-08T22:59:31+02:00">2020-08-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,14 +235,14 @@
 <h3 id="Convergence-of-Random-Variable"><a href="#Convergence-of-Random-Variable" class="headerlink" title="Convergence of Random Variable"></a>Convergence of Random Variable</h3><p>Before discussing convergence for a sequence of random variables, let us remember what convergence means for a sequence of real numbers. </p>
 <blockquote>
 <p>A sequence of real number $x_1, x_2, x_3 …$ converges to a limit x if<br>$$<br>\lim_{n\rightarrow\infty}x_n=x<br>$$</p>
-<p>That is, for any $\epsilon&gt;0$, there exists an $N\in\N $ such that </p>
-<p>$$<br>|x_n-x|&lt;\epsilon,\text{ for all } n&gt;N<br>$$</p>
+<p>That is, for any $\epsilon&gt;0$, there exists an $N_o\in N $ such that </p>
+<p>$$<br>|x_n-x|&lt;\epsilon,\text{ for all } n&gt;N_o<br>$$</p>
 </blockquote>
 <h4 id="Sequence-of-Random-Variables"><a href="#Sequence-of-Random-Variables" class="headerlink" title="Sequence of Random Variables"></a>Sequence of Random Variables</h4><p>Here, we would like to discuss what we precisely mean by a sequence of random variables. Recall that, in any probability model, we have a sample space $S$ and a probability measure $P$. For simplicity, suppose that our sample space consists of a finite number of elements, i.e.,</p>
 <p>$$<br>S={s_1,s_2,…., s_k}<br>$$</p>
 <p>Then, a random variable $X$ is a mapping that assigns a real number to any of any of the possible outcomes $s_i$, which we may write as<br>$$<br>X(s_i)=x_i,\text{ for }i=1,2,…,k<br>$$</p>
 <p>When we have a sequence of random variables $X_1,X_2,X3,….$, it means each $X_n$ is a function from space $S$ to real numbers, that is,<br>$$<br>X_n(s_i)=x_{ni},\text{ for }i=1,2,…,k<br>$$</p>
-<p>In brief, a sequence of random variables is in fact a sequence of functions $X_n: S\rightarrow\R$.</p>
+<p>In brief, a sequence of random variables is in fact a sequence of functions $X_n: S\rightarrow R$.</p>
 <h3 id="Convergence-in-Distribution"><a href="#Convergence-in-Distribution" class="headerlink" title="Convergence in Distribution"></a>Convergence in Distribution</h3><p>Convergence in distribution is in some sense the weakest type of convergence. All it says is that the CDF of $X_n$ converges to the CDF of $X$ as $n$ goes to infinity. It does not require any dependence between the $X_n$ and $X$.  To say that $X_n$ converges in distribution to $X$, we write:<br>$$<br>X_n \xrightarrow{d} X<br>$$</p>
 <p>The formal definition of convergence in distribution follows:</p>
 <blockquote>
