@@ -169,10 +169,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-08-03 18:54:40 / Modified: 19:06:20" itemprop="dateCreated datePublished" datetime="2020-08-03T18:54:40+02:00">2020-08-03</time>
+              <time title="Created: 2020-08-03 18:54:40" itemprop="dateCreated datePublished" datetime="2020-08-03T18:54:40+02:00">2020-08-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 10:24:06" itemprop="dateModified" datetime="2020-08-08T10:24:06+02:00">2020-08-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -204,7 +210,7 @@
 </li>
 </ul>
 <h2 id="Essence-of-Probability-Theory"><a href="#Essence-of-Probability-Theory" class="headerlink" title="Essence of Probability Theory"></a>Essence of Probability Theory</h2><ul>
-<li>How to connect conditional probability with regression model?</li>
+<li>How to connect conditional probability with regression model?<br>Remember conditional expectation of random variable $Y$ given that $X=x$ is<br>$$<br>\begin{equation*}<br>E[Y|X=x]=\sum_{y_i\in{R_y}}P_{Y|X}(y_i|x)<br>\end{equation*}<br>$$<br>That is to say, $E[Y|X=x]$ only depends on the value of $x$. In other words,  $E[Y|X=x]$ is a function of $x$. Thus we can think of $E[Y|X=x]$ as a function of the value of random variable $X$ as follows:<br>$$<br>\begin{equation*}<br>g(x)=E[Y|X=x]\Rightarrow E[Y|X]=g(X)<br>\end{equation*}<br>$$<br>Where function $g(X)$ could be our commonly used regression model.</li>
 </ul>
 
       
