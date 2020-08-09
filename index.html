@@ -146,6 +146,143 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/09/probability-theory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Discrete Choice">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Discrete Life">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/09/probability-theory/" class="post-title-link" itemprop="url">probability theory</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-09 19:54:33 / Modified: 19:59:00" itemprop="dateCreated datePublished" datetime="2020-08-09T19:54:33+02:00">2020-08-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Academic/" itemprop="url" rel="index"><span itemprop="name">Academic</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Academic/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Essence-of-Probability-Theory"><a href="#Essence-of-Probability-Theory" class="headerlink" title="Essence of Probability Theory"></a>Essence of Probability Theory</h2><ul>
+<li>How to connect conditional probability with the regression model?<br>Remember conditional expectation of random variable $Y$ given that $X=x$ is<br>$$<br>\begin{equation*}<br>E[Y|X=x]=\sum_{y_i\in{R_y}}P_{Y|X}(y_i|x)<br>\end{equation*}<br>$$</li>
+</ul>
+<p>That is to say, $E[Y|X=x]$ only depends on the value of $x$. In other words,  $E[Y|X=x]$ is a function of $x$. Thus we can think of $E[Y|X=x]$ as a function of the value of random variable $X$ as follows:<br>$$<br>\begin{equation*}<br>g(x)=E[Y|X=x]\Rightarrow E[Y|X]=g(X)<br>\end{equation*}<br>$$<br>Where function $g(X)$ could be our commonly used regression model. This is an important concept that we interpret the conditional expectation as a random variable. </p>
+<h3 id="Law-of-Iterated-Expectations"><a href="#Law-of-Iterated-Expectations" class="headerlink" title="Law of Iterated Expectations"></a>Law of Iterated Expectations</h3><p>$$<br>E[Y]=E[E[Y|X]]<br>$$<br>Let us look again at the law of total probability for expectation. Assume $E[Y|X]=g(X)$, we have:<br>$$<br>\begin{align*}<br>E[Y]&amp;=\sum_{x_i\in{R_X}}E[Y|X=x_i]P_X(x_i) \\<br>    &amp;=\sum_{x_i\in{R_X}}g(x_i)P_X(x_i) \\<br>    &amp;=E[g(X)]=E[E[Y|X]]<br>\end{align*}<br>$$<br>This is also known as <strong>Law of Total Expectation</strong>.</p>
+<h3 id="Law-of-Total-Varianace"><a href="#Law-of-Total-Varianace" class="headerlink" title="Law of Total  Varianace:"></a>Law of Total  Varianace:</h3><p>$$<br>Var(Y)=Var(E[Y|X])+E[Var(Y|X)]<br>$$</p>
+<p>Let $Z=E[Y|X]$, then,<br>$$<br>Var(Z)=E[Z^2]-(E[Z])^2=E[Z^2]-(E[Y])^2<br>$$</p>
+<p>First, we are going to show the proof and introduce the intuition afterwards.<br>$$<br>\begin{align*}<br>&amp; Var(Y|X)=E[Y^2|X]-E^2[Y|X] \\<br>&amp; \Rightarrow E[Var(Y|X)]=E[Y^2]-E[Z^2] \\<br>&amp; \Rightarrow E[Var(Y|X)]+E[Z^2]=Var(Y)+(E[Y])^2 \\<br>&amp; \Rightarrow Var(Y) =E[Var(Y|X)]+Var(E[Y|X])<br>\end{align*}<br>$$</p>
+<p>To understand the law of total variance intuitively, it is often useful to look at a population divided into several subgroups. In particular, suppose that we have this random experiment: We pick a person in the world at random and look at his/her height. Let us use variable $Y$ to represent the height. Define another random variable $X$ whose value depends on the country of the chosen person, where $X=1,2,3…n$. $n$ is the the number of countries in the world. Then, let us look at the two terms in the law of total variance.<br>$$<br>Var(Y) =E[Var(Y|X)]+Var(E[Y|X])<br>$$</p>
+<p>We can see that $Var(Y|X=i)$ denotes the variance of $X$ in country $i$. Thus $E[Var(Y|X)]$ is the average of variances across all countries. On the other hand, $E[Y|X=i]$ is average height in country $i$. Then $Var(E[Y|X])$ is the variance between countries. So we can interpret the law of total variance in the following way. Variance of $Y$ can be decomposed into two parts: the first is the average of variances from each individual country, while the second is the variance between height averages in each country.</p>
+<h3 id="Convergence-of-Random-Variable"><a href="#Convergence-of-Random-Variable" class="headerlink" title="Convergence of Random Variable"></a>Convergence of Random Variable</h3><p>Before discussing convergence for a sequence of random variables, let us remember what convergence means for a sequence of real numbers. </p>
+<blockquote>
+<p>A sequence of real number $x_1, x_2, x_3 …$ converges to a limit $x$ if<br>$$<br>\lim_{n\rightarrow\infty}x_n=x<br>$$</p>
+<p>That is, for any $\epsilon&gt;0$, there exists an $N_o\in N $ such that </p>
+<p>$$<br>|x_n-x|&lt;\epsilon,\text{ for all } n&gt;N_o<br>$$</p>
+</blockquote>
+<h4 id="Sequence-of-Random-Variables"><a href="#Sequence-of-Random-Variables" class="headerlink" title="Sequence of Random Variables"></a>Sequence of Random Variables</h4><p>Here, we would like to discuss what we precisely mean by a sequence of random variables. Recall that, in any probability model, we have a sample space $S$ and a probability measure $P$. For simplicity, suppose that our sample space consists of a finite number of elements, i.e.,</p>
+<p>$$<br>S={s_1,s_2,…., s_k}<br>$$</p>
+<p>Then, a random variable $X$ is a mapping that assigns a real number to any of any of the possible outcomes $s_i$, which we may write as<br>$$<br>X(s_i)=x_i,\text{ for }i=1,2,…,k<br>$$</p>
+<p>When we have a sequence of random variables $X_1,X_2,X_3,….$, it means each $X_n$ is a function from space $S$ to real numbers, that is,<br>$$<br>X_n(s_i)=x_{ni},\text{ for }i=1,2,…,k<br>$$</p>
+<p>In brief, a sequence of random variables is in fact a sequence of functions $X_n: S\rightarrow R$.</p>
+<h3 id="Convergence-in-Distribution"><a href="#Convergence-in-Distribution" class="headerlink" title="Convergence in Distribution"></a>Convergence in Distribution</h3><p>Convergence in distribution is in some sense the weakest type of convergence. All it says is that the CDF of $X_n$ converges to the CDF of $X$ as $n$ goes to infinity. It does not require any dependence between the $X_n$ and $X$.  To say that $X_n$ converges in distribution to $X$, we write:<br>$$<br>X_n \xrightarrow{d} X<br>$$</p>
+<p>The formal definition of convergence in distribution follows:</p>
+<blockquote>
+<p>A sequence of random variables $X_1,X_2,X_3,….$ converges in distribution to a random<br>variable $X$, if<br>$$<br>\lim_{n\rightarrow\infty}F_{X_n}(x)=F_{X}(x)<br>$$<br>for all at which $F_{X}(x)$ is continuous. </p>
+</blockquote>
+<p>The most famous example of convergence in distribution is the central limit theorem (CLT). The CLT states that the normalized average of i.i.d. random variables $X_1,X_2,X_3,….$ converges in distribution to a standard normal random variable.</p>
+<h3 id="Convergence-in-Probability"><a href="#Convergence-in-Probability" class="headerlink" title="Convergence in Probability"></a>Convergence in Probability</h3><p>Convergence in probability is stronger than convergence in distribution, and we write<br>$$<br>X_n \xrightarrow{P} X<br>$$</p>
+<p>The formal definition of convergence in probability follows:</p>
+<blockquote>
+<p>A sequence of random variables $X_1,X_2,X_3,….$ converges in  probability to a random<br>variable $X$, if<br>$$<br>\lim_{n\rightarrow\infty}P(|X_n-X|\geq\epsilon)=0,\text{ for all }\epsilon&gt;0<br>$$</p>
+</blockquote>
+<p>The most famous example of convergence in probability is the weak law of large numbers (WLLN). The WLLN states that if $X_1,X_2,X_3,….$ are i.i.d. random variable with mean $E[X_i]=\mu&lt;\infty$, then the average sequence defined by<br>$$<br>\bar{X}_n=\frac{X_1+X_2+…+X_n}{n}<br>$$</p>
+<p>converges in probability to its mean $\mu$. It is called the “weak” law because it refers to convergence in probability. There is another version of the law of large numbers that is called the strong law of large numbers (SLLN).</p>
+<h3 id="Convergence-in-Mean"><a href="#Convergence-in-Mean" class="headerlink" title="Convergence in Mean"></a>Convergence in Mean</h3><p>One way of interpreting the convergence of a sequence  $X_n$ to  $X$ is to say the “distance” between $X_n$ to  $X$  is getting smaller and smaller. For example, if we define the distance between $X_n$ and  $X$ as $P(|X_n-X|\geq\epsilon)$, we have convergence in probability. The common way to define the distance between $X_n$ and  $X$ is $E(|X_n-X|^{\tau})$, parameter $\tau$ is a fixed number. This refers to <strong>convergence in mean</strong>. (<em>Note: for convergence in mean, it usually requires $E(|X_n|^{\tau})&lt;\infty$</em>). The most common case is $\tau=2$, in which case it is called the <strong>mean-square convergence</strong>. (<em>Note: the case $\tau=1$ is narrowly referred as convergence in mean.</em>)</p>
+<blockquote>
+<p>Let $\tau\geq1$ be a fixed number. A sequence of random variables $X_1,X_2,X_3,….$<br>converges in the $\tau$th mean or in the $L^{\tau}$ norm to a random variable $X$, shown by<br>$X_n \xrightarrow{L^{\tau}} X$, if<br>$$<br>\lim_{n\rightarrow\infty}E(|X_n-X|^{\tau})=0<br>$$</p>
+<p>If $\tau=2$, it is shown as $X_n \xrightarrow{m.s.} X$</p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem:</strong> If $X_n \xrightarrow{L^{\tau}} X$ for some  $\tau\geq1$, then $X_n \xrightarrow{P} &gt; X$.</p>
+</blockquote>
+<blockquote>
+<p><strong>Proof:</strong>  For any $\epsilon&gt;0$ and the $\tau\geq1$, we have<br>$$<br>\begin{align*}<br>P(|X_n-X|\geq\epsilon)&amp;=P(|X_n-X|^{\tau}\geq\epsilon^{\tau}) \\<br>&amp;\leq \frac{E(|X_n-X|^{\tau})}{\epsilon^{\tau}}\text{ by Markov Inequality}<br>\end{align*}<br>$$</p>
+<p>Since by assumption, $ \lim_{n\rightarrow\infty}E(|X_n-X|^{\tau})=0$, we conclude<br>$$<br>\lim_{n\rightarrow\infty}P(|X_n-X|\geq\epsilon)=0,\text{ for all }\epsilon&gt;0<br>$$</p>
+</blockquote>
+<p>The converse of above theorem is not true in general, an counter example follows:</p>
+<blockquote>
+<p><strong>Example:</strong> Consider a sequence of random variables $X_1,X_2,X_3,….$ such that<br>$$<br>X_n=\left\lbrace\begin{array}{ll }<br>n^2 &amp; \text{ with probability }\frac{1}{n} \\<br>0 &amp; \text{ with probability }1-\frac{1}{n}\end{array}\right.<br>$$<br>we can show that  $X_n \xrightarrow{P} X$, but $X_n$ does not converge in the $\tau$th mean &gt; for any $\tau&gt;1$.</p>
+</blockquote>
+<h3 id="Almost-Sure-Convergence"><a href="#Almost-Sure-Convergence" class="headerlink" title="Almost Sure Convergence"></a>Almost Sure Convergence</h3><p>Consider a sequence of random variables  $X_1,X_2,X_3,….$, if the probability that the sequence $X_n(s)$ converges to $X(s)$ is equal to 1, we say that $X_n$ converges to $X$ almost surely and write<br>$$<br>X_n \xrightarrow{a.s.} X<br>$$</p>
+<p>The formal definition of almost sure convergence follows:</p>
+<blockquote>
+<p>A  sequence of random variables  $X_1,X_2,X_3,….$, converge almost surely to a random<br>variable $X$ if<br>$$<br>P\big(\left\lbrace s \in S: \lim_{n\rightarrow \infty} X_n(s)=X(s)\right\rbrace\big)=1.<br>$$</p>
+</blockquote>
+<blockquote>
+<p><strong>Example:</strong> Consider the sample space $S=[0,1]$ with a probability measure that is uniform on this space, i.e.,<br>$$<br>P([a,b])=b-a, \qquad \textrm{ for all }0 \leq a \leq b \leq 1.<br>$$</p>
+<p>Define the sequence ${X_n, n=1,2,…}$ as follows:<br>$$<br>X_n(s) = \left\lbrace \begin{array}{l l}<br>1  &amp;  \quad  0 \leq s &lt; {\large \frac{n+1}{2n}}  \\<br> &amp;  \quad   \\<br>0 &amp;  \quad \text{otherwise}<br>\end{array} \right.<br>$$</p>
+<p>Also, define the random variable $X$ on this sample space as follows:<br>$$<br>X(s) = \left\lbrace \begin{array}{l l}<br>1  &amp;  \quad  0 \leq s &lt; \frac{1}{2}  \\<br> &amp;  \quad   \\<br>0 &amp;  \quad \text{otherwise}<br>\end{array} \right.<br>$$</p>
+<p>We can show that $X_n \xrightarrow{a.s.} X$.</p>
+</blockquote>
+<p>In some problems, proving almost sure convergence directly can be difficult. Thus, it is desirable to know some sufficient conditions for almost sure convergence. Here is a result that is sometimes useful when we would like to prove almost sure convergence.</p>
+<blockquote>
+<p><strong>Theorem:</strong> Consider a sequence of random variables  $X_1,X_2,X_3,….$, if for all &gt; $\epsilon&gt;0$, we have<br>$$<br>\sum_{n=1}^{\infty} P\big(|X_n-X| &gt; \epsilon \big) &lt; \infty,<br>$$</p>
+<p>Then $X_n \xrightarrow{a.s.} X$.</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/Haruki/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,7 +382,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/math/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/math-intuition/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -259,7 +396,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/03/math/" class="post-title-link" itemprop="url">Intuitions for Mathematics</a>
+            <a href="/2020/08/03/math-intuition/" class="post-title-link" itemprop="url">Intuitions for Mathematics</a>
         </h2>
 
         <div class="post-meta">
@@ -276,7 +413,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-09 12:40:03" itemprop="dateModified" datetime="2020-08-09T12:40:03+02:00">2020-08-09</time>
+                <time title="Modified: 2020-08-09 20:03:40" itemprop="dateModified" datetime="2020-08-09T20:03:40+02:00">2020-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,72 +445,10 @@
 
 </li>
 </ul>
-<h2 id="Essence-of-Probability-Theory"><a href="#Essence-of-Probability-Theory" class="headerlink" title="Essence of Probability Theory"></a>Essence of Probability Theory</h2><ul>
-<li>How to connect conditional probability with the regression model?<br>Remember conditional expectation of random variable $Y$ given that $X=x$ is<br>$$<br>\begin{equation*}<br>E[Y|X=x]=\sum_{y_i\in{R_y}}P_{Y|X}(y_i|x)<br>\end{equation*}<br>$$</li>
+<h2 id="Essence-of-Measure-Theory"><a href="#Essence-of-Measure-Theory" class="headerlink" title="Essence of Measure Theory"></a>Essence of Measure Theory</h2><ul>
+<li>Here is a nice video about introductions of the measure, (Lebesgue) measurable space, etc<iframe width="640" height="360" src="https://www.youtube.com/embed/7O7qPrNIt7w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</li>
 </ul>
-<p>That is to say, $E[Y|X=x]$ only depends on the value of $x$. In other words,  $E[Y|X=x]$ is a function of $x$. Thus we can think of $E[Y|X=x]$ as a function of the value of random variable $X$ as follows:<br>$$<br>\begin{equation*}<br>g(x)=E[Y|X=x]\Rightarrow E[Y|X]=g(X)<br>\end{equation*}<br>$$<br>Where function $g(X)$ could be our commonly used regression model. This is an important concept that we interpret the conditional expectation as a random variable. </p>
-<h3 id="Law-of-Iterated-Expectations"><a href="#Law-of-Iterated-Expectations" class="headerlink" title="Law of Iterated Expectations"></a>Law of Iterated Expectations</h3><p>$$<br>E[Y]=E[E[Y|X]]<br>$$<br>Let us look again at the law of total probability for expectation. Assume $E[Y|X]=g(X)$, we have:<br>$$<br>\begin{align*}<br>E[Y]&amp;=\sum_{x_i\in{R_X}}E[Y|X=x_i]P_X(x_i) \\<br>    &amp;=\sum_{x_i\in{R_X}}g(x_i)P_X(x_i) \\<br>    &amp;=E[g(X)]=E[E[Y|X]]<br>\end{align*}<br>$$<br>This is also known as <strong>Law of Total Expectation</strong>.</p>
-<h3 id="Law-of-Total-Varianace"><a href="#Law-of-Total-Varianace" class="headerlink" title="Law of Total  Varianace:"></a>Law of Total  Varianace:</h3><p>$$<br>Var(Y)=Var(E[Y|X])+E[Var(Y|X)]<br>$$</p>
-<p>Let $Z=E[Y|X]$, then,<br>$$<br>Var(Z)=E[Z^2]-(E[Z])^2=E[Z^2]-(E[Y])^2<br>$$</p>
-<p>First, we are going to show the proof and introduce the intuition afterwards.<br>$$<br>\begin{align*}<br>&amp; Var(Y|X)=E[Y^2|X]-E^2[Y|X] \\<br>&amp; \Rightarrow E[Var(Y|X)]=E[Y^2]-E[Z^2] \\<br>&amp; \Rightarrow E[Var(Y|X)]+E[Z^2]=Var(Y)+(E[Y])^2 \\<br>&amp; \Rightarrow Var(Y) =E[Var(Y|X)]+Var(E[Y|X])<br>\end{align*}<br>$$</p>
-<p>To understand the law of total variance intuitively, it is often useful to look at a population divided into several subgroups. In particular, suppose that we have this random experiment: We pick a person in the world at random and look at his/her height. Let us use variable $Y$ to represent the height. Define another random variable $X$ whose value depends on the country of the chosen person, where $X=1,2,3…n$. $n$ is the the number of countries in the world. Then, let us look at the two terms in the law of total variance.<br>$$<br>Var(Y) =E[Var(Y|X)]+Var(E[Y|X])<br>$$</p>
-<p>We can see that $Var(Y|X=i)$ denotes the variance of $X$ in country $i$. Thus $E[Var(Y|X)]$ is the average of variances across all countries. On the other hand, $E[Y|X=i]$ is average height in country $i$. Then $Var(E[Y|X])$ is the variance between countries. So we can interpret the law of total variance in the following way. Variance of $Y$ can be decomposed into two parts: the first is the average of variances from each individual country, while the second is the variance between height averages in each country.</p>
-<h3 id="Convergence-of-Random-Variable"><a href="#Convergence-of-Random-Variable" class="headerlink" title="Convergence of Random Variable"></a>Convergence of Random Variable</h3><p>Before discussing convergence for a sequence of random variables, let us remember what convergence means for a sequence of real numbers. </p>
-<blockquote>
-<p>A sequence of real number $x_1, x_2, x_3 …$ converges to a limit $x$ if<br>$$<br>\lim_{n\rightarrow\infty}x_n=x<br>$$</p>
-<p>That is, for any $\epsilon&gt;0$, there exists an $N_o\in N $ such that </p>
-<p>$$<br>|x_n-x|&lt;\epsilon,\text{ for all } n&gt;N_o<br>$$</p>
-</blockquote>
-<h4 id="Sequence-of-Random-Variables"><a href="#Sequence-of-Random-Variables" class="headerlink" title="Sequence of Random Variables"></a>Sequence of Random Variables</h4><p>Here, we would like to discuss what we precisely mean by a sequence of random variables. Recall that, in any probability model, we have a sample space $S$ and a probability measure $P$. For simplicity, suppose that our sample space consists of a finite number of elements, i.e.,</p>
-<p>$$<br>S={s_1,s_2,…., s_k}<br>$$</p>
-<p>Then, a random variable $X$ is a mapping that assigns a real number to any of any of the possible outcomes $s_i$, which we may write as<br>$$<br>X(s_i)=x_i,\text{ for }i=1,2,…,k<br>$$</p>
-<p>When we have a sequence of random variables $X_1,X_2,X3,….$, it means each $X_n$ is a function from space $S$ to real numbers, that is,<br>$$<br>X_n(s_i)=x_{ni},\text{ for }i=1,2,…,k<br>$$</p>
-<p>In brief, a sequence of random variables is in fact a sequence of functions $X_n: S\rightarrow R$.</p>
-<h3 id="Convergence-in-Distribution"><a href="#Convergence-in-Distribution" class="headerlink" title="Convergence in Distribution"></a>Convergence in Distribution</h3><p>Convergence in distribution is in some sense the weakest type of convergence. All it says is that the CDF of $X_n$ converges to the CDF of $X$ as $n$ goes to infinity. It does not require any dependence between the $X_n$ and $X$.  To say that $X_n$ converges in distribution to $X$, we write:<br>$$<br>X_n \xrightarrow{d} X<br>$$</p>
-<p>The formal definition of convergence in distribution follows:</p>
-<blockquote>
-<p>A sequence of random variables $X_1,X_2,X3,….$ converges in distribution to a random<br>variable $X$, if<br>$$<br> \lim_{n\rightarrow\infty}F_{X_n}(x)=F_{X}(x)<br>$$<br> for all at which $F_{X}(x)$ is continuous. </p>
-</blockquote>
-<p>The most famous example of convergence in distribution is the central limit theorem (CLT). The CLT states that the normalized average of i.i.d. random variables $X_1,X_2,X3,….$ converges in distribution to a standard normal random variable.</p>
-<h3 id="Convergence-in-Probability"><a href="#Convergence-in-Probability" class="headerlink" title="Convergence in Probability"></a>Convergence in Probability</h3><p>Convergence in probability is stronger than convergence in distribution, and we write<br>$$<br>X_n \xrightarrow{P} X<br>$$</p>
-<p>The formal definition of convergence in probability follows:</p>
-<blockquote>
-<p>A sequence of random variables $X_1,X_2,X3,….$ converges in  probability to a random<br>variable $X$, if<br>$$<br> \lim_{n\rightarrow\infty}P(|X_n-X|\geq\epsilon)=0,\text{ for all }\epsilon&gt;0<br>$$</p>
-</blockquote>
-<p>The most famous example of convergence in probability is the weak law of large numbers (WLLN). The WLLN states that if $X_1,X_2,X3,….$ are i.i.d. random variable with mean $E[X_i]=\mu&lt;\infty$, then the average sequence defined by<br>$$<br>\bar{X}_n=\frac{X_1+X_2+…+X_n}{n}<br>$$</p>
-<p>converges in probability to its mean $\mu$. It is called the “weak” law because it refers to convergence in probability. There is another version of the law of large numbers that is called the strong law of large numbers (SLLN).</p>
-<h3 id="Convergence-in-Mean"><a href="#Convergence-in-Mean" class="headerlink" title="Convergence in Mean"></a>Convergence in Mean</h3><p>One way of interpreting the convergence of a sequence  $X_n$ to  $X$ is to say the “distance” between $X_n$ to  $X$  is getting smaller and smaller. For example, if we define the distance between $X_n$ and  $X$ as $P(|X_n-X|\geq\epsilon)$, we have convergence in probability. The common way to define the distance between $X_n$ and  $X$ is $E(|X_n-X|^{\tau})$, parameter $\tau$ is a fixed number. This refers to <strong>convergence in mean</strong>. (<em>Note: for convergence in mean, it usually requires $E(|X_n|^{\tau})&lt;\infty$</em>). The most common case is $\tau=2$, in which case it is called the <strong>mean-square convergence</strong>. (<em>Note: the case $\tau=1$ is narrowly referred as convergence in mean.</em>)</p>
-<blockquote>
-<p>Let $\tau\geq1$ be a fixed number. A sequence of random variables $X_1,X_2,X3,….$<br>converges in the $\tau$th mean or in the $L^{\tau}$ norm to a random variable $X$, shown by<br>$X_n \xrightarrow{L^{\tau}} X$, if<br>$$<br>\lim_{n\rightarrow\infty}E(|X_n-X|^{\tau})=0<br>$$</p>
-<p>If $\tau=2$, it is shown as $X_n \xrightarrow{m.s.} X$</p>
-</blockquote>
-<blockquote>
-<p><strong>Theorem:</strong> If $X_n \xrightarrow{L^{\tau}} X$ for some  $\tau\geq1$, then $X_n \xrightarrow{P} &gt; X$.</p>
-</blockquote>
-<blockquote>
-<p><strong>Proof:</strong>  For any $\epsilon&gt;0$ and the $\tau\geq1$, we have<br>$$<br>\begin{align*}<br>P(|X_n-X|\geq\epsilon)&amp;=P(|X_n-X|^{\tau}\geq\epsilon^{\tau}) \\<br>&amp;\leq \frac{E(|X_n-X|^{\tau})}{\epsilon^{\tau}}\text{ by Markov Inequality}<br>\end{align*}<br>$$</p>
-<p>Since by assumption, $ \lim_{n\rightarrow\infty}E(|X_n-X|^{\tau})=0$, we conclude<br>$$<br>\lim_{n\rightarrow\infty}P(|X_n-X|\geq\epsilon)=0,\text{ for all }\epsilon&gt;0<br>$$</p>
-</blockquote>
-<p>The converse of above theorem is not true in general, an counter example follows:</p>
-<blockquote>
-<p><strong>Example:</strong> Consider a sequence of random variables $X_1,X_2,X3,….$ such that<br>$$<br>X_n=\left\lbrace\begin{array}{ll }<br>n^2 &amp; \text{ with probability }\frac{1}{n} \\<br>0 &amp; \text{ with probability }1-\frac{1}{n}\end{array}\right.<br>$$<br>we can show that  $X_n \xrightarrow{P} X$, but $X_n$ does not converge in the $\tau$th mean &gt; for any $\tau&gt;1$.</p>
-</blockquote>
-<h3 id="Almost-Sure-Convergence"><a href="#Almost-Sure-Convergence" class="headerlink" title="Almost Sure Convergence"></a>Almost Sure Convergence</h3><p>Consider a sequence of random variables  $X_1,X_2,X3,….$, if the probability that the sequence $X_n(s)$ converges to $X(s)$ is equal to 1, we say that $X_n$ converges to $X$ almost surely and write<br>$$<br>X_n \xrightarrow{a.s.} X<br>$$</p>
-<p>The formal definition of almost sure convergence follows:</p>
-<blockquote>
-<p>A  sequence of random variables  $X_1,X_2,X3,….$, converge almost surely to a random<br>variable $X$ if<br>$$<br>P\big(\left\lbrace s \in S: \lim_{n\rightarrow \infty} X_n(s)=X(s)\right\rbrace\big)=1.<br>$$</p>
-</blockquote>
-<blockquote>
-<p><strong>Example:</strong> Consider the sample space $S=[0,1]$ with a probability measure that is uniform on this space, i.e.,<br>$$<br>P([a,b])=b-a, \qquad \textrm{ for all }0 \leq a \leq b \leq 1.<br>$$</p>
-<p>Define the sequence ${X_n, n=1,2,…}$ as follows:<br>$$<br>X_n(s) = \left\lbrace \begin{array}{l l}<br>    1  &amp;  \quad  0 \leq s &lt; {\large \frac{n+1}{2n}}  \\<br>      &amp;  \quad   \\<br>   0 &amp;  \quad \text{otherwise}<br>  \end{array} \right.<br>$$</p>
-<p>Also, define the random variable $X$ on this sample space as follows:<br>$$<br>X(s) = \left\lbrace \begin{array}{l l}<br>    1  &amp;  \quad  0 \leq s &lt; \frac{1}{2}  \\<br>      &amp;  \quad   \\<br>    0 &amp;  \quad \text{otherwise}<br>  \end{array} \right.<br>$$</p>
-<p>We can show that $X_n \xrightarrow{a.s.} X$.</p>
-</blockquote>
-<p>In some problems, proving almost sure convergence directly can be difficult. Thus, it is desirable to know some sufficient conditions for almost sure convergence. Here is a result that is sometimes useful when we would like to prove almost sure convergence.</p>
-<blockquote>
-<p><strong>Theorem:</strong> Consider a sequence of random variables  $X_1,X_2,X3,….$, if for all &gt; $\epsilon&gt;0$, we have<br>$$<br>\sum_{n=1}^{\infty} P\big(|X_n-X| &gt; \epsilon \big) &lt; \infty,<br>$$</p>
-<p>Then $X_n \xrightarrow{a.s.} X$.</p>
-</blockquote>
 
       
     </div>
@@ -734,7 +809,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -745,7 +820,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
