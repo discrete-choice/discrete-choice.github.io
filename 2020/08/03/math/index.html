@@ -28,7 +28,7 @@
 <meta property="og:description" content="Essence of Linear Algebra Here is a nice video providing intuitions for Eigenvector and Eigenvalue     Essence of Probability Theory How to connect conditional probability with the regression model?Re">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-03T16:54:40.000Z">
-<meta property="article:modified_time" content="2020-08-09T10:12:10.969Z">
+<meta property="article:modified_time" content="2020-08-09T10:16:51.404Z">
 <meta property="article:author" content="Discrete Choice">
 <meta property="article:tag" content="Probability Theory">
 <meta property="article:tag" content="Linear Algebra">
@@ -183,7 +183,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-09 12:12:10" itemprop="dateModified" datetime="2020-08-09T12:12:10+02:00">2020-08-09</time>
+                <time title="Modified: 2020-08-09 12:16:51" itemprop="dateModified" datetime="2020-08-09T12:16:51+02:00">2020-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,8 +261,9 @@
 <p>Let $\tau\geq1$ be a fixed number. A sequence of random variables $X_1,X_2,X3,….$<br>converges in the $\tau$th mean or in the $L^{\tau}$ norm to a random variable $X$, shown by<br>$X_n \xrightarrow{L^{\tau}} X$, if<br>$$<br>\lim_{n\rightarrow\infty}E(|X_n-X|^{\tau})=0<br>$$</p>
 <p>If $\tau=2$, it is shown as $X_n \xrightarrow{m.s.} X$</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">If $X_n \xrightarrow&#123;L^&#123;\tau&#125;&#125; X$ for some  $\tau\geq1$, then $X_n \xrightarrow&#123;P&#125; &gt; X$.</span><br></pre></td></tr></table></figure>
-
+<blockquote>
+<p><strong>Theorem:</strong> If $X_n \xrightarrow{L^{\tau}} X$ for some  $\tau\geq1$, then $X_n \xrightarrow{P} &gt; X$.</p>
+</blockquote>
 <blockquote>
 <p><strong>Proof:</strong>  For any $\epsilon&gt;0$ and the $\tau\geq1$, we have<br>$$<br>\begin{align*}<br>P(|X_n-X|\geq\epsilon)&amp;=P(|X_n-X|^{\tau}\geq\epsilon^{\tau}) \\<br>&amp;\leq \frac{E(|X_n-X|^{\tau})}{\epsilon^{\tau}}\text{ by Markov Inequality}<br>\end{align*}<br>$$</p>
 <p>Since by assumption, $ \lim_{n\rightarrow\infty}E(|X_n-X|^{\tau})=0$, we conclude<br>$$<br>\lim_{n\rightarrow\infty}P(|X_n-X|\geq\epsilon)=0,\text{ for all }\epsilon&gt;0<br>$$</p>
@@ -276,10 +277,20 @@
 <blockquote>
 <p>A  sequence of random variables  $X_1,X_2,X3,….$, converge almost surely to a random<br>variable $X$ if<br>$$<br>P\left( \left{s \in S: \lim_{n\rightarrow \infty} X_n(s)=X(s)\right}\right)=1.<br>$$</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Consider the sample space $S&#x3D;[0,1]$ with a probability measure that is uniform on this space, i.e.,</span><br><span class="line">$$</span><br><span class="line">P([a,b])&#x3D;b-a, \qquad \textrm&#123; for all &#125;0 \leq a \leq b \leq 1.</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">Define the sequence $\&#123;X_n, n&#x3D;1,2,...\&#125;$ as follows:</span><br><span class="line">$$</span><br><span class="line">X_n(s) &#x3D; \left\&#123; \begin&#123;array&#125;&#123;l l&#125;</span><br><span class="line">    1  &amp;  \quad  0 \leq s &lt; &#123;\large \frac&#123;n+1&#125;&#123;2n&#125;&#125;  \\</span><br><span class="line">      &amp;  \quad   \\</span><br><span class="line">    0 &amp;  \quad \text&#123;otherwise&#125;</span><br><span class="line">  \end&#123;array&#125; \right.</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">Also, define the random variable $X$ on this sample space as follows: </span><br><span class="line">$$</span><br><span class="line">X(s) &#x3D; \left\&#123; \begin&#123;array&#125;&#123;l l&#125;</span><br><span class="line">    1  &amp;  \quad  0 \leq s &lt; \frac&#123;1&#125;&#123;2&#125;  \\</span><br><span class="line">      &amp;  \quad   \\</span><br><span class="line">    0 &amp;  \quad \text&#123;otherwise&#125;</span><br><span class="line">  \end&#123;array&#125; \right.</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">We can show that $X_n \xrightarrow&#123;a.s.&#125; X$.</span><br></pre></td></tr></table></figure>
-
+<blockquote>
+<p><strong>Example:</strong> Consider the sample space $S=[0,1]$ with a probability measure that is uniform on this space, i.e.,<br>$$<br>P([a,b])=b-a, \qquad \textrm{ for all }0 \leq a \leq b \leq 1.<br>$$</p>
+<p>Define the sequence ${X_n, n=1,2,…}$ as follows:<br>$$<br>X_n(s) = \left{ \begin{array}{l l}<br>    1  &amp;  \quad  0 \leq s &lt; {\large \frac{n+1}{2n}}  \<br>      &amp;  \quad   \<br>    0 &amp;  \quad \text{otherwise}<br>  \end{array} \right.<br>$$</p>
+<p>Also, define the random variable $X$ on this sample space as follows:<br>$$<br>X(s) = \left{ \begin{array}{l l}<br>    1  &amp;  \quad  0 \leq s &lt; \frac{1}{2}  \<br>      &amp;  \quad   \<br>    0 &amp;  \quad \text{otherwise}<br>  \end{array} \right.<br>$$</p>
+<p>We can show that $X_n \xrightarrow{a.s.} X$.</p>
+</blockquote>
 <p>In some problems, proving almost sure convergence directly can be difficult. Thus, it is desirable to know some sufficient conditions for almost sure convergence. Here is a result that is sometimes useful when we would like to prove almost sure convergence.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Consider a sequence of random variables  $X_1,X_2,X3,....$, if for all $\epsilon&gt;0$, we have </span><br><span class="line">$$</span><br><span class="line">\sum_&#123;n&#x3D;1&#125;^&#123;\infty&#125; P\big(|X_n-X| &gt; \epsilon \big) &lt; \infty,</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">Then $X_n \xrightarrow&#123;a.s.&#125; X$.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Theorem:</strong> Consider a sequence of random variables  $X_1,X_2,X3,….$, if for all &gt; $\epsilon&gt;0$, we have<br>$$<br>\sum_{n=1}^{\infty} P\big(|X_n-X| &gt; \epsilon \big) &lt; \infty,<br>$$</p>
+</blockquote>
+<blockquote>
+<p>Then $X_n \xrightarrow{a.s.} X$.</p>
+</blockquote>
+
     </div>
 
     
