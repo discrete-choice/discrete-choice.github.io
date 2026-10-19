@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Essence of Probability Theory How to connect conditional probability with the regression model?\nRemember conditional expectation of random variable $Y$ given that $X=x$ is\n$$ \\begin{align} E[Y \\mid X=x] = \\sum_{y_i \\in Y} P(y_i \\mid x) \\end{align} $$ That is to say, $E[Y \\mid X=x]$ only depends on the value of $x$. In other words, $E[Y \\mid X=x]$ is a function of $x$. Thus we can think of $E[Y \\mid X=x]$ as a function of the value of random variable $X$ as follows:\n">
+<title>Intuitions for Probability Theory</title>
+
+
+<link rel="canonical" href="https://discrete-choice.github.io/post/2020/08/01/intuitions-for-probability-theory/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.6c875234350e518395efbf51958523b0852fb2215ab8cb81358f9317153eba2d.css"><meta property='og:title' content="Intuitions for Probability Theory">
+<meta property='og:description' content="Essence of Probability Theory How to connect conditional probability with the regression model?\nRemember conditional expectation of random variable $Y$ given that $X=x$ is\n$$ \\begin{align} E[Y \\mid X=x] = \\sum_{y_i \\in Y} P(y_i \\mid x) \\end{align} $$ That is to say, $E[Y \\mid X=x]$ only depends on the value of $x$. In other words, $E[Y \\mid X=x]$ is a function of $x$. Thus we can think of $E[Y \\mid X=x]$ as a function of the value of random variable $X$ as follows:\n">
+<meta property='og:url' content='https://discrete-choice.github.io/post/2020/08/01/intuitions-for-probability-theory/'>
+<meta property='og:site_name' content='Discrete Choice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Math' /><meta property='article:published_time' content='2020-08-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-08-01T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Intuitions for Probability Theory">
+<meta name="twitter:description" content="Essence of Probability Theory How to connect conditional probability with the regression model?\nRemember conditional expectation of random variable $Y$ given that $X=x$ is\n$$ \\begin{align} E[Y \\mid X=x] = \\sum_{y_i \\in Y} P(y_i \\mid x) \\end{align} $$ That is to say, $E[Y \\mid X=x]$ only depends on the value of $x$. In other words, $E[Y \\mid X=x]$ is a function of $x$. Thus we can think of $E[Y \\mid X=x]$ as a function of the value of random variable $X$ as follows:\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Discrete Choice</a></h1>
+            <h2 class="site-description">我亦是行人</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/learning/" style="background-color: hsl(67, 60%, 84%); color: hsl(67, 60%, 15%);">
+                Learning
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/2020/08/01/intuitions-for-probability-theory/">Intuitions for Probability Theory</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2020-08-01T00:00:00Z'>Saturday, August 1, 2020</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        8 minutes read
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="essence-of-probability-theory">Essence of Probability Theory
+</h2><ul>
+<li>How to connect conditional probability with the regression model?<br>
+Remember conditional expectation of random variable $Y$ given that
+$X=x$ is<br>
+
+$$
+  \begin{align}
+  E[Y \mid X=x] = \sum_{y_i \in Y} P(y_i \mid x)
+  \end{align}
+  $$</li>
+</ul>
+<p>That is to say, $E[Y \mid X=x]$ only depends on the value of $x$. In other words, $E[Y \mid X=x]$ is a function of $x$. Thus we can think of $E[Y \mid X=x]$ as a function of the value of random variable $X$
+as follows:<br>
+</p>
+$$
+\begin{align}
+g(x) = E[Y \mid X=x] \Rightarrow E[Y \mid X] = g(X)
+\end{align}
+$$<p>
+Where function $g(X)$ could be our commonly used regression model.
+This is an important concept that we interpret the conditional expectation as a random variable.</p>
+<h3 id="law-of-iterated-expectations">Law of Iterated Expectations
+</h3>$$
+E[Y] = E[E[Y \mid X]]
+$$<p>
+Let us look again at the law of total probability for expectation.
+Assume $E[Y \mid X] = g(X)$, we have:<br>
+</p>
+$$
+\begin{align}
+E[Y] &= \sum_{x_i \in \mathcal{X}} E[Y \mid X=x_i] P_X(x_i) \\
+&= \sum_{x_i \in \mathcal{X}} g(x_i) P_X(x_i) \\
+&= E[g(X)] = E[E[Y \mid X]]
+\end{align}
+$$<p>
+This is also known as <strong>Law of Total Expectation</strong>.</p>
+<h3 id="law-of-total-variance">Law of Total Variance:
+</h3>$$
+Var(Y) = Var(E[Y \mid X]) + E[Var(Y \mid X)]
+$$<p>Let $Z = E[Y \mid X]$, then,<br>
+</p>
+$$
+Var(Z) = E[Z^2] - (E[Z])^2 = E[Z^2] - (E[Y])^2
+$$<p>First, we are going to show the proof and introduce the intuition afterwards.<br>
+</p>
+$$
+\begin{align}
+& Var(Y \mid X) = E[Y^2 \mid X] - (E[Y \mid X])^2 \\
+& \Rightarrow E[Var(Y \mid X)] = E[Y^2] - E[Z^2] \\
+& \Rightarrow E[Var(Y \mid X)] + E[Z^2] = Var(Y) + (E[Y])^2 \\
+& \Rightarrow Var(Y) = E[Var(Y \mid X)] + Var(E[Y \mid X])
+\end{align}
+$$<p>To understand the law of total variance intuitively, it is often useful to look at a population divided into several subgroups. In particular, suppose that we have this random experiment: We pick a person in the world at random and look at his/her height. Let us use variable $Y$ to represent the height. Define another random variable $X$ whose value depends on the country of the chosen person, where $X=1,2,3...n$.
+$n$ is the number of countries in the world. Then, let us look at the two terms in the law of total variance.<br>
+</p>
+$$
+Var(Y) = E[Var(Y \mid X)] + Var(E[Y \mid X])
+$$<p>We can see that $Var(Y \mid X=i)$ denotes the variance of $Y$ in country
+$i$. Thus $E[Var(Y \mid X)]$ is the average of variances across all countries. On the other hand, $E[Y \mid X=i]$ is average height in country $i$. Then $Var(E[Y \mid X])$ is the variance between countries. So we can interpret the law of total variance in the following way. Variance of $Y$ can be decomposed into two parts: the first is the average of variances from each individual country, while the second is the variance between height averages in each country.</p>
+<h3 id="convergence-of-random-variable">Convergence of Random Variable
+</h3><p>Before discussing convergence for a sequence of random variables, let us remember what convergence means for a sequence of real numbers.</p>
+
+    <blockquote>
+        <p>A sequence of real number $x_1, x_2, x_3 ...$ converges to a limit
+$x$ if<br>
+</p>
+$$
+ \lim_{n \to \infty} x_n = x
+ $$<p>That is, for any $\epsilon > 0$, there exists an $N_0 \in \mathbb{N}$ such
+that</p>
+
+    </blockquote>
+$$
+ |x_n - x| < \epsilon, \text{ for } n > N_0
+ $$<h4 id="sequence-of-random-variables">Sequence of Random Variables
+</h4><p>Here, we would like to discuss what we precisely mean by a sequence of random variables. Recall that, in any probability model, we have a sample space $S$ and a probability measure $P$. For simplicity, suppose that our sample space consists of a finite number of elements, i.e.,</p>
+$$
+S = \{s_1, s_2, \ldots, s_k\}
+$$<p>Then, a random variable $X$ is a mapping that assigns a real number to any of the possible outcomes $s_i$, which we may write as<br>
+</p>
+$$
+X(s_i) = x_i, \text{ for } i=1,2,...,k
+$$<p>When we have a sequence of random variables $X_1,X_2,X_3,....$, it means each $X_n$ is a function from space $S$ to real numbers, that is,<br>
+</p>
+$$
+X_n(s_i) = x_i, \text{ for } i=1,2,...,k
+$$<p>In brief, a sequence of random variables is in fact a sequence of functions $X_n: S \rightarrow \mathbb{R}$.</p>
+<h3 id="convergence-in-distribution">Convergence in Distribution
+</h3><p>Convergence in distribution is in some sense the weakest type of convergence. All it says is that the CDF of $X_n$ converges to the CDF of $X$ as $n$ goes to infinity. It does not require any dependence between the $X_n$ and $X$. To say that $X_n$ converges in distribution to $X$, we write:<br>
+</p>
+$$
+X_n \xrightarrow{d} X
+$$<p>The formal definition of convergence in distribution follows:</p>
+
+    <blockquote>
+        <p>A sequence of random variables $X_1,X_2,X_3,....$ converges in
+distribution to a random<br>
+variable $X$, if<br>
+</p>
+$$
+ \lim_{n \to \infty} F_{X_n}(x) = F_X(x)
+$$<p>
+for all $x$ at which $F_X(x)$ is continuous.</p>
+
+    </blockquote>
+<p>The most famous example of convergence in distribution is the central limit theorem (CLT). The CLT states that the normalized average of i.i.d. random variables $X_1,X_2,X_3,....$ converges in distribution to a standard normal random variable.</p>
+<h3 id="convergence-in-probability">Convergence in Probability
+</h3><p>Convergence in probability is stronger than convergence in distribution, and we write<br>
+</p>
+$$
+X_n \xrightarrow{p} X
+$$<p>The formal definition of convergence in probability follows:</p>
+
+    <blockquote>
+        <p>A sequence of random variables $X_1,X_2,X_3,....$ converges in
+probability to a random<br>
+variable $X$, if<br>
+</p>
+$$
+ \lim_{n \to \infty} P(|X_n - X| \geq \epsilon) = 0, \text{ for
+ all } \epsilon > 0
+ $$
+    </blockquote>
+<p>The most famous example of convergence in probability is the weak law of large numbers (WLLN). The WLLN states that if $X_1,X_2,X_3,....$ are i.i.d. random variable with mean $E[X_i] = \mu < \infty$, then the average sequence defined by<br>
+</p>
+$$
+\bar{X}_n = \frac{1}{n} \sum_{i=1}^{n} X_i
+$$<p>converges in probability to its mean $\mu$. It is called the &ldquo;weak&rdquo;
+law because it refers to convergence in probability. There is another version of the law of large numbers that is called the strong law of large numbers (SLLN).</p>
+<h3 id="convergence-in-mean">Convergence in Mean
+</h3><p>One way of interpreting the convergence of a sequence $X_n$ to $X$
+is to say the &ldquo;distance&rdquo; between $X_n$ to $X$ is getting smaller and smaller. For example, if we define the distance between $X_n$ and
+$X$ as $P(|X_n - X| \geq \epsilon)$, we have convergence in probability. The common way to define the distance between $X_n$ and
+$X$ is $E(|X_n - X|^r)$, parameter $r$ is a fixed number. This refers to <strong>convergence in mean</strong>. (<em>Note: for convergence in mean, it usually requires $E(|X_n|^r) < \infty$</em>). The most common case is $r=2$, in which case it is called the
+<strong>mean-square convergence</strong>. (<em>Note: the case $r=1$ is narrowly referred as convergence in mean.</em>)</p>
+
+    <blockquote>
+        <p>Let $r \geq 1$ be a fixed number. A sequence of random variables
+$X_1,X_2,X_3,....$<br>
+converges in the $r$th mean or in the $L^r$ norm to a
+random variable $X$, shown by<br>
+$X_n \xrightarrow{L^r} X$, if<br>
+</p>
+$$
+ \lim_{n \to \infty} E(|X_n - X|^r) = 0
+ $$<p>If $r=2$, it is shown as $X_n \xrightarrow{L^2} X$</p>
+
+    </blockquote>
+
+    <blockquote>
+        <p><strong>Theorem:</strong> If $X_n \xrightarrow{L^r} X$ for some
+$r \geq 1$, then $X_n \xrightarrow{p} X$.</p>
+
+    </blockquote>
+
+    <blockquote>
+        <p><strong>Proof:</strong> For any $\epsilon > 0$ and the $r \geq 1$, we have<br>
+</p>
+$$
+ \begin{align}
+ P(|X_n - X| \geq \epsilon) &= P(|X_n - X|^r \geq \epsilon^r) \\
+ &\leq \frac{E(|X_n - X|^r)}{\epsilon^r} \text{ by Markov Inequality}
+ \end{align}
+ $$<p>Since by assumption, $
+> \lim_{n \to \infty} E(|X_n - X|^r) = 0$, we conclude<br>
+</p>
+$$
+ \lim_{n \to \infty} P(|X_n - X| \geq \epsilon) = 0, \text{ for
+ all } \epsilon > 0
+ $$
+    </blockquote>
+<p>The converse of above theorem is not true in general, a counter example follows:</p>
+
+    <blockquote>
+        <p><strong>Example:</strong> Consider a sequence of random variables
+$X_1,X_2,X_3,....$ such that<br>
+</p>
+$$
+ X_n = \begin{cases}
+ n^2 & \text{with probability } \frac{1}{n} \\
+ 0 & \text{with probability } 1-\frac{1}{n}
+ \end{cases}
+ $$<p>
+we can show that $X_n \xrightarrow{p} X$, but $X_n$ does not
+converge in the $r$th mean for any $r > 1$.</p>
+
+    </blockquote>
+<h3 id="almost-sure-convergence">Almost Sure Convergence
+</h3><p>Consider a sequence of random variables $X_1,X_2,X_3,....$, if the probability that the sequence $X_n(s)$ converges to $X(s)$ is equal to 1, we say that $X_n$ converges to $X$ almost surely and write<br>
+</p>
+$$
+X_n \xrightarrow{a.s.} X
+$$<p>The formal definition of almost sure convergence follows:</p>
+
+    <blockquote>
+        <p>A sequence of random variables $X_1,X_2,X_3,....$, converge almost
+surely to a random<br>
+variable $X$ if<br>
+</p>
+$$
+ P\big(\left\lbrace s \in S: \lim_{n \to \infty}
+ X_n(s) = X(s)\right\rbrace\big) = 1.
+ $$
+    </blockquote>
+<p><strong>Example:</strong> Consider the sample space $S=[0,1]$ with a
+probability measure that is uniform on this space, i.e.,<br>
+</p>
+$$
+ P([a,b]) = b - a, \qquad \text{for } 0 \leq a \leq b \leq 1.
+ $$<p>Define the sequence $X_n$ as follows:<br>
+</p>
+$$
+ X_n(s) = \begin{cases}
+ 1 & \quad 0 \leq s < \frac{1}{n} \\
+ & \quad \\
+ 0 & \quad \text{otherwise}
+ \end{cases}
+ $$<p>Also, define the random variable $X$ on this sample space as
+follows:<br>
+</p>
+$$
+ X(s) = \begin{cases}
+ 1 & \quad 0 \leq s < 0 \\
+ & \quad \\
+ 0 & \quad \text{otherwise}
+ \end{cases}
+ $$<p>We can show that $X_n \xrightarrow{a.s.} X$.</p>
+<p>In some problems, proving almost sure convergence directly can be difficult. Thus, it is desirable to know some sufficient conditions for almost sure convergence. Here is a result that is sometimes useful when we would like to prove almost sure convergence.</p>
+
+    <blockquote>
+        <p><strong>Theorem:</strong> Consider a sequence of random variables
+$X_1,X_2,X_3,....$, if for all $> \epsilon > 0$, we have<br>
+</p>
+$$
+ \sum_{n=1}^{\infty} P\big(|X_n - X| > \epsilon \big) <
+ \infty,
+ $$<p>
+Then $X_n \xrightarrow{a.s.} X$.</p>
+
+    </blockquote>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/math/">Math</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">Related content</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="">
+    <a href="/post/2020/08/01/blogdown/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Intuitions for Eigenvector and Lebesgue Measure</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+        <div class="disqus-container">
+    
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 Discrete Choice
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.1ff1e5fdc4e178ed422e50aa407526dc552f26342d729343fded19416194382c.js" defer></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on Discrete Choice</title>
+        <link>https://discrete-choice.github.io/categories/</link>
+        <description>Recent content in Categories on Discrete Choice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://discrete-choice.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Review</title>
+            <link>https://discrete-choice.github.io/categories/review/</link>
+            <pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate>
+            <guid>https://discrete-choice.github.io/categories/review/</guid>
+            <description></description>
+        </item><item>
+            <title>Journey</title>
+            <link>https://discrete-choice.github.io/categories/journey/</link>
+            <pubDate>Sun, 18 Oct 2026 00:00:00 +0000</pubDate>
+            <guid>https://discrete-choice.github.io/categories/journey/</guid>
+            <description></description>
+        </item><item>
+            <title>Fun</title>
+            <link>https://discrete-choice.github.io/categories/fun/</link>
+            <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+            <guid>https://discrete-choice.github.io/categories/fun/</guid>
+            <description></description>
+        </item><item>
+            <title>Learning</title>
+            <link>https://discrete-choice.github.io/categories/learning/</link>
+            <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+            <guid>https://discrete-choice.github.io/categories/learning/</guid>
+            <description></description>
+        </item><item>
+            <title>Song</title>
+            <link>https://discrete-choice.github.io/categories/song/</link>
+            <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+            <guid>https://discrete-choice.github.io/categories/song/</guid>
+            <description></description>
+        </item><item>
+            <title>Speech</title>
+            <link>https://discrete-choice.github.io/categories/speech/</link>
+            <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+            <guid>https://discrete-choice.github.io/categories/speech/</guid>
+            <description></description>
+        </item></channel>
+</rss>
